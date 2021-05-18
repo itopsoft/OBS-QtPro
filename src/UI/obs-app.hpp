@@ -1,4 +1,4 @@
-/******************************************************************************
+﻿/******************************************************************************
     Copyright (C) 2013 by Hugh Bailey <obs.jim@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
@@ -218,12 +218,16 @@ bool WindowPositionValid(QRect rect);
 
 static inline int GetProfilePath(char *path, size_t size, const char *file)
 {
-	OBSMainWindow *window =
-		reinterpret_cast<OBSMainWindow *>(App()->GetMainWindow());
-	return window->GetProfilePath(path, size, file);
+    OBSMainWindow *window =
+        reinterpret_cast<OBSMainWindow *>(App()->GetMainWindow());
+    return window->GetProfilePath(path, size, file);
 }
 
 extern bool portable_mode;
+
+extern std::string currentLogFile;
+extern std::string lastLogFile;
+extern std::string lastCrashLogFile;
 
 extern bool opt_start_streaming;
 extern bool opt_start_recording;
@@ -233,5 +237,8 @@ extern bool opt_minimize_tray;
 extern bool opt_studio_mode;
 extern bool opt_allow_opengl;
 extern bool opt_always_on_top;
+extern bool opt_disable_updater;
+extern std::string opt_starting_collection;
+extern std::string opt_starting_profile;
 extern std::string opt_starting_scene;
 extern bool restart;
