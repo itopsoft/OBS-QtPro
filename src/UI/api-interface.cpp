@@ -1,7 +1,7 @@
-#include <obs-frontend-internal.hpp>
+﻿#include <obs-frontend-internal.hpp>
 #include "obs-app.hpp"
 #include "qt-wrappers.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include "window-basic-main-outputs.hpp"
 
 #include <functional>

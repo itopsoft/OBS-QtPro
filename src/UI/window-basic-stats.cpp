@@ -1,7 +1,7 @@
 #include "obs-frontend-api/obs-frontend-api.h"
 
 #include "window-basic-stats.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include "platform.hpp"
 #include "obs-app.hpp"
 #include "qt-wrappers.hpp"

@@ -1,6 +1,6 @@
 #include <QMessageBox>
 #include "window-basic-transform.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 
 Q_DECLARE_METATYPE(OBSSceneItem);
 

@@ -1,10 +1,10 @@
-#include <QAction>
+﻿#include <QAction>
 #include <QGuiApplication>
 #include <QMouseEvent>
 #include <QMenu>
 #include <QScreen>
 #include "obs-app.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include "display-helpers.hpp"
 #include "qt-wrappers.hpp"
 #include "platform.hpp"

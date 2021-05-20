@@ -16,7 +16,7 @@
 ******************************************************************************/
 
 #include "window-namedialog.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include "window-basic-filters.hpp"
 #include "display-helpers.hpp"
 #include "qt-wrappers.hpp"

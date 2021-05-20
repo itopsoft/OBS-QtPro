@@ -1,4 +1,4 @@
-#include "window-basic-main.hpp"
+﻿#include "OBSBasic.hpp"
 #include "obs-app.hpp"
 #include "source-tree.hpp"
 #include "qt-wrappers.hpp"

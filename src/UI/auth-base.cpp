@@ -1,5 +1,5 @@
-#include "auth-base.hpp"
-#include "window-basic-main.hpp"
+﻿#include "auth-base.hpp"
+#include "OBSBasic.hpp"
 
 #include <vector>
 #include <map>

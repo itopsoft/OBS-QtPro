@@ -31,7 +31,7 @@ win32{
     }
 
 #    LIBS += WS2_32.lib AdvAPI32.lib winmm.lib User32.lib GDI32.lib
-    LIBS += -lWS2_32 -lUser32 -lGDI32 -lAdvAPI32 -lwinmm -lStrmiids -loleaut32 -lcrypt32
+    LIBS += -lWS2_32 -lUser32 -lole32 -lGDI32 -lAdvAPI32 -lwinmm -lStrmiids -loleaut32 -lcrypt32
 
 }
 ####  Windows  ### - End

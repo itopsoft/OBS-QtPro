@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include "window-basic-adv-audio.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include "item-widget-helpers.hpp"
 #include "adv-audio-control.hpp"
 #include "obs-app.hpp"

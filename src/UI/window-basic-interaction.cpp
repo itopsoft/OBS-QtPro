@@ -17,7 +17,7 @@
 
 #include "obs-app.hpp"
 #include "window-basic-interaction.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include "qt-wrappers.hpp"
 #include "display-helpers.hpp"
 

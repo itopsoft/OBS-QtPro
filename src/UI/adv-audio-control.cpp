@@ -1,4 +1,4 @@
-#include <QHBoxLayout>
+﻿#include <QHBoxLayout>
 #include <QGridLayout>
 #include <QLabel>
 #include <QSpinBox>
@@ -8,7 +8,7 @@
 #include "qt-wrappers.hpp"
 #include "obs-app.hpp"
 #include "adv-audio-control.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 
 #ifndef NSEC_PER_MSEC
 #define NSEC_PER_MSEC 1000000

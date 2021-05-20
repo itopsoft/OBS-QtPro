@@ -1,4 +1,4 @@
-/******************************************************************************
+﻿/******************************************************************************
     Copyright (C) 2019-2020 by Dillon Pentz <dillon@vodbox.io>
 
     This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 #pragma once
 
 #include "obs-app.hpp"
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include <QPointer>
 #include <QStyledItemDelegate>
 #include <QFileInfo>

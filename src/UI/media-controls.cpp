@@ -1,4 +1,4 @@
-#include "window-basic-main.hpp"
+#include "OBSBasic.hpp"
 #include "media-controls.hpp"
 #include "obs-app.hpp"
 #include <QToolTip>

@@ -28,11 +28,10 @@ win32{
     }
 }
 
-INCLUDEPATH += $$PWD/src/config
-
 INCLUDEPATH += $$PWD/src/UI \
                $$PWD/src/UI/obs-frontend-api
 
+#这里必须引入obs-frontend-api.lib， 不能引入 obs-frontend-api.cpp，否则会奔溃。
 LIBS += -L$$PWD/src/UI/obs-frontend-api/lib/x86/Debug -lobs-frontend-api
 
 
@@ -44,10 +43,65 @@ LIBS += -L$$PWD/src/UI/obs-frontend-api/lib/x86/Debug -lobs-frontend-api
     include($$PWD/src/deps/deps.pri)
 ### lib ### End
 
+INCLUDEPATH += $$PWD/src \
+               $$PWD/src/Config \
+               $$PWD/src/Main \
+               $$PWD/src/Source \
+               $$PWD/src/Display \
+               $$PWD/src/Setting
 
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp \
+    src/Config/window-basic-auto-config-test.cpp \
+    src/Config/window-basic-auto-config.cpp \
+    src/Display/qt-display.cpp \
+    src/Display/window-basic-preview.cpp \
+    src/Setting/window-basic-settings-stream.cpp \
+    src/Setting/window-basic-settings.cpp \
+    src/main.cpp \
+    src/Main/OBSBasic.cpp \
+    src/Main/window-basic-main-browser.cpp \
+    src/Main/window-basic-main-dropfiles.cpp \
+    src/Main/window-basic-main-icons.cpp \
+    src/Main/window-basic-main-outputs.cpp \
+    src/Main/window-basic-main-profiles.cpp \
+    src/Main/window-basic-main-scene-collections.cpp \
+    src/Main/window-basic-main-screenshot.cpp \
+    src/Main/window-basic-main-transitions.cpp \
+    src/mainwindow.cpp \
+    src/obs-app.cpp \
+    src/Source/OBSBasicProperties.cpp \
+    src/Source/OBSBasicSourceSelect.cpp \
+    src/Source/properties-view.cpp
+
+HEADERS += \
+    src/Config/window-basic-auto-config.hpp \
+    src/Display/display-helpers.hpp \
+    src/Display/qt-display.hpp \
+    src/Display/window-basic-preview.hpp \
+    src/Main/OBSBasic.hpp \
+    src/Main/window-basic-main-outputs.hpp \
+    src/Main/window-main.hpp \
+    src/Setting/window-basic-settings.hpp \
+    src/mainwindow.h \
+    src/obs-app.hpp \
+    src/Source/OBSBasicProperties.hpp \
+    src/Source/OBSBasicSourceSelect.hpp \
+    src/Source/properties-view.hpp \
+    src/Source/properties-view.moc.hpp
+
+FORMS += \
+    src/Config/AutoConfigFinishPage.ui \
+    src/Config/AutoConfigStartPage.ui \
+    src/Config/AutoConfigStreamPage.ui \
+    src/Config/AutoConfigTestPage.ui \
+    src/Config/AutoConfigVideoPage.ui \
+    src/Setting/OBSBasicSettings.ui \
+    src/mainwindow.ui \
+    src/Main/OBSBasic.ui \
+    src/Source/OBSBasicSourceSelect.ui
+
+
+SOURCES += \
     src/UI/adv-audio-control.cpp \
     src/UI/api-interface.cpp \
     src/UI/audio-encoders.cpp \
@@ -60,20 +114,6 @@ SOURCES += \
     src/UI/crash-report.cpp \
     src/UI/double-slider.cpp \
     src/UI/focus-list.cpp \
-#    src/UI/frontend-plugins/decklink-captions/decklink-captions.cpp \
-    src/UI/frontend-plugins/decklink-output-ui/DecklinkOutputUI.cpp \
-    src/UI/frontend-plugins/decklink-output-ui/decklink-ui-main.cpp \
-#    src/UI/frontend-plugins/frontend-tools/auto-scene-switcher-nix.cpp \
-#    src/UI/frontend-plugins/frontend-tools/auto-scene-switcher-osx.mm \
-    src/UI/frontend-plugins/frontend-tools/auto-scene-switcher-win.cpp \
-    src/UI/frontend-plugins/frontend-tools/auto-scene-switcher.cpp \
-    src/UI/frontend-plugins/frontend-tools/captions-handler.cpp \
-    src/UI/frontend-plugins/frontend-tools/captions-mssapi-stream.cpp \
-    src/UI/frontend-plugins/frontend-tools/captions-mssapi.cpp \
-    src/UI/frontend-plugins/frontend-tools/captions.cpp \
-#    src/UI/frontend-plugins/frontend-tools/frontend-tools.c \
-    src/UI/frontend-plugins/frontend-tools/output-timer.cpp \
-    src/UI/frontend-plugins/frontend-tools/scripts.cpp \
     src/UI/horizontal-scroll-area.cpp \
     src/UI/hotkey-edit.cpp \
     src/UI/importers/classic.cpp \
@@ -87,13 +127,9 @@ SOURCES += \
     src/UI/media-controls.cpp \
     src/UI/media-slider.cpp \
     src/UI/menu-button.cpp \
-    src/UI/obf.c \
-    src/UI/obs-app.cpp \
     src/UI/obs-proxy-style.cpp \
     src/UI/platform-windows.cpp \
 #    src/UI/platform-x11.cpp \
-    src/UI/properties-view.cpp \
-    src/UI/qt-display.cpp \
     src/UI/qt-wrappers.cpp \
     src/UI/record-button.cpp \
     src/UI/remote-text.cpp \
@@ -109,34 +145,9 @@ SOURCES += \
     src/UI/visibility-checkbox.cpp \
     src/UI/visibility-item-widget.cpp \
     src/UI/volume-control.cpp \
-    src/UI/win-update/update-window.cpp \
-#    src/UI/win-update/updater/hash.cpp \
-#    src/UI/win-update/updater/http.cpp \
-#    src/UI/win-update/updater/init-hook-files.c \
-#    src/UI/win-update/updater/patch.cpp \
-#    src/UI/win-update/updater/updater.cpp \
-    src/UI/win-update/win-update-helpers.cpp \
-    src/UI/win-update/win-update.cpp \
-    src/UI/window-basic-about.cpp \
     src/UI/window-basic-adv-audio.cpp \
-    src/UI/window-basic-auto-config-test.cpp \
-    src/UI/window-basic-auto-config.cpp \
     src/UI/window-basic-filters.cpp \
     src/UI/window-basic-interaction.cpp \
-    src/UI/window-basic-main-browser.cpp \
-    src/UI/window-basic-main-dropfiles.cpp \
-    src/UI/window-basic-main-icons.cpp \
-    src/UI/window-basic-main-outputs.cpp \
-    src/UI/window-basic-main-profiles.cpp \
-    src/UI/window-basic-main-scene-collections.cpp \
-    src/UI/window-basic-main-screenshot.cpp \
-    src/UI/window-basic-main-transitions.cpp \
-    src/UI/window-basic-main.cpp \
-    src/UI/window-basic-preview.cpp \
-    src/UI/window-basic-properties.cpp \
-    src/UI/window-basic-settings-stream.cpp \
-    src/UI/window-basic-settings.cpp \
-    src/UI/window-basic-source-select.cpp \
     src/UI/window-basic-stats.cpp \
     src/UI/window-basic-status-bar.cpp \
     src/UI/window-basic-transform.cpp \
@@ -146,11 +157,9 @@ SOURCES += \
     src/UI/window-importer.cpp \
     src/UI/window-log-reply.cpp \
     src/UI/window-namedialog.cpp \
-    src/UI/window-projector.cpp \
-    src/UI/window-remux.cpp
+    src/UI/window-projector.cpp
 
 HEADERS += \
-    mainwindow.h \
     src/UI/adv-audio-control.hpp \
     src/UI/audio-encoders.hpp \
     src/UI/auth-base.hpp \
@@ -162,22 +171,9 @@ HEADERS += \
     src/UI/combobox-ignorewheel.hpp \
     src/UI/context-bar-controls.hpp \
     src/UI/crash-report.hpp \
-    src/UI/display-helpers.hpp \
     src/UI/double-slider.hpp \
     src/UI/expand-checkbox.hpp \
     src/UI/focus-list.hpp \
-#    src/UI/frontend-plugins/decklink-captions/decklink-captions.h \
-    src/UI/frontend-plugins/decklink-output-ui/DecklinkOutputUI.h \
-    src/UI/frontend-plugins/decklink-output-ui/decklink-ui-main.h \
-    src/UI/frontend-plugins/frontend-tools/auto-scene-switcher.hpp \
-    src/UI/frontend-plugins/frontend-tools/captions-handler.hpp \
-    src/UI/frontend-plugins/frontend-tools/captions-mssapi-stream.hpp \
-    src/UI/frontend-plugins/frontend-tools/captions-mssapi.hpp \
-    src/UI/frontend-plugins/frontend-tools/captions.hpp \
-    src/UI/frontend-plugins/frontend-tools/frontend-tools-config.h.in \
-    src/UI/frontend-plugins/frontend-tools/output-timer.hpp \
-    src/UI/frontend-plugins/frontend-tools/scripts.hpp \
-    src/UI/frontend-plugins/frontend-tools/tool-helpers.hpp \
     src/UI/horizontal-scroll-area.hpp \
     src/UI/hotkey-edit.hpp \
     src/UI/importers/importers.hpp \
@@ -188,13 +184,8 @@ HEADERS += \
     src/UI/media-slider.hpp \
     src/UI/menu-button.hpp \
     src/UI/mute-checkbox.hpp \
-    src/UI/obf.h \
-    src/UI/obs-app.hpp \
     src/UI/obs-proxy-style.hpp \
     src/UI/platform.hpp \
-    src/UI/properties-view.hpp \
-    src/UI/properties-view.moc.hpp \
-    src/UI/qt-display.hpp \
     src/UI/qt-wrappers.hpp \
     src/UI/record-button.hpp \
     src/UI/remote-text.hpp \
@@ -211,23 +202,9 @@ HEADERS += \
     src/UI/visibility-checkbox.hpp \
     src/UI/visibility-item-widget.hpp \
     src/UI/volume-control.hpp \
-    src/UI/win-update/update-window.hpp \
-#    src/UI/win-update/updater/resource.h \
-#    src/UI/win-update/updater/updater.hpp \
-#    src/UI/win-update/updater/updater.rc \
-    src/UI/win-update/win-update-helpers.hpp \
-    src/UI/win-update/win-update.hpp \
-    src/UI/window-basic-about.hpp \
     src/UI/window-basic-adv-audio.hpp \
-    src/UI/window-basic-auto-config.hpp \
     src/UI/window-basic-filters.hpp \
     src/UI/window-basic-interaction.hpp \
-    src/UI/window-basic-main-outputs.hpp \
-    src/UI/window-basic-main.hpp \
-    src/UI/window-basic-preview.hpp \
-    src/UI/window-basic-properties.hpp \
-    src/UI/window-basic-settings.hpp \
-    src/UI/window-basic-source-select.hpp \
     src/UI/window-basic-stats.hpp \
     src/UI/window-basic-status-bar.hpp \
     src/UI/window-basic-transform.hpp \
@@ -236,44 +213,25 @@ HEADERS += \
 #    src/UI/window-extra-browsers.hpp \
     src/UI/window-importer.hpp \
     src/UI/window-log-reply.hpp \
-    src/UI/window-main.hpp \
     src/UI/window-namedialog.hpp \
-    src/UI/window-projector.hpp \
-    src/UI/window-remux.hpp
+    src/UI/window-projector.hpp
 
 FORMS += \
-    mainwindow.ui \
-    src/UI/forms/AutoConfigFinishPage.ui \
-    src/UI/forms/AutoConfigStartPage.ui \
-    src/UI/forms/AutoConfigStreamPage.ui \
-    src/UI/forms/AutoConfigTestPage.ui \
-    src/UI/forms/AutoConfigVideoPage.ui \
     src/UI/forms/ColorSelect.ui \
-    src/UI/forms/OBSAbout.ui \
-    src/UI/forms/OBSBasic.ui \
     src/UI/forms/OBSBasicFilters.ui \
     src/UI/forms/OBSBasicInteraction.ui \
-    src/UI/forms/OBSBasicSettings.ui \
-    src/UI/forms/OBSBasicSourceSelect.ui \
     src/UI/forms/OBSBasicTransform.ui \
     src/UI/forms/OBSExtraBrowsers.ui \
     src/UI/forms/OBSImporter.ui \
     src/UI/forms/OBSLogReply.ui \
-    src/UI/forms/OBSRemux.ui \
-    src/UI/forms/OBSUpdate.ui \
     src/UI/forms/source-toolbar/browser-source-toolbar.ui \
     src/UI/forms/source-toolbar/color-source-toolbar.ui \
     src/UI/forms/source-toolbar/device-select-toolbar.ui \
     src/UI/forms/source-toolbar/game-capture-toolbar.ui \
     src/UI/forms/source-toolbar/image-source-toolbar.ui \
     src/UI/forms/source-toolbar/media-controls.ui \
-    src/UI/forms/source-toolbar/text-source-toolbar.ui \
-#    src/UI/frontend-plugins/decklink-captions/forms/captions.ui \
-    src/UI/frontend-plugins/decklink-output-ui/forms/output.ui \
-    src/UI/frontend-plugins/frontend-tools/forms/auto-scene-switcher.ui \
-    src/UI/frontend-plugins/frontend-tools/forms/captions.ui \
-    src/UI/frontend-plugins/frontend-tools/forms/output-timer.ui \
-    src/UI/frontend-plugins/frontend-tools/forms/scripts.ui
+    src/UI/forms/source-toolbar/text-source-toolbar.ui
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
